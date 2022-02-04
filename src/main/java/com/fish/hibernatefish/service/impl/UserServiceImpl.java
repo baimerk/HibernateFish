@@ -40,5 +40,10 @@ public class UserServiceImpl implements BaseService<User> {
     public User findByLoginAndPassword(String login, String password) {
         return repository.findByLoginAndPassword(login, password);
     }
+
+    @Override
+    public List<User> findAllType() {
+        return null;
+    }
 }
 

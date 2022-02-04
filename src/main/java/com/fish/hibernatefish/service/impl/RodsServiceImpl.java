@@ -8,8 +8,10 @@ import com.fish.hibernatefish.service.BaseService;
 import java.util.List;
 
 public class RodsServiceImpl implements BaseService<RodsCharacter> {
-
     private BaseRepository<RodsCharacter> repository = new RodsRepositoryImpl();
+
+    @Override
+    public List<RodsCharacter> findAllType(){return repository.findAllType();}
 
     @Override
     public List<RodsCharacter> findAll() {

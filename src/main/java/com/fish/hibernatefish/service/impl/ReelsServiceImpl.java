@@ -40,4 +40,9 @@ public class ReelsServiceImpl implements BaseService<Reels> {
     public Reels findByLoginAndPassword(String login, String password) {
         return null;
     }
+
+    @Override
+    public List<Reels> findAllType() {
+        return null;
+    }
 }

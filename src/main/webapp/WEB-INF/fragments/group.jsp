@@ -7,6 +7,7 @@
       <th class="text-center" scope="col">ID</th>
       <th class="text-center" scope="col">NAME</th>
       <th class="text-center" scope="col">LAST NAME</th>
+      <th class="text-center" scope="col">AGE</th>
       <th class="text-center" scope="col">ADDRESS</th>
       <th class="text-center" scope="col">IS MARRIED</th>
       <c:if test="${sessionScope.userRole.equals('ADMIN')}">
@@ -20,6 +21,7 @@
         <td class="text-center align-middle">${user.id}</td>
         <td class="text-center align-middle">${user.name}</td>
         <td class="text-center align-middle">${user.lastName}</td>
+        <td class="text-center align-middle">${user.age}</td>
         <td class="text-center align-middle">${user.address}</td>
         <td class="text-center align-middle">${user.married}</td>
         <c:if test="${sessionScope.userRole.equals('ADMIN')}">

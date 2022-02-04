@@ -39,7 +39,7 @@
             <div class="carousel-caption">
                 <h3>Arena Series</h3>
                 <p>It is good rods</p>
-                <button class="btYel" data-toggle="modal" data-target="#myModal" href="manage">Buy items</button>
+                <div><a href="${pageContext.request.contextPath}/list-of-rods/action" class="btYel">Buy items</a></div><br>
             </div>
         </div>
 

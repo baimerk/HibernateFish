@@ -38,4 +38,9 @@ public class TypeRepositoryImpl implements BaseRepository<Rods> {
     public Rods findByLoginAndPassword(String login, String password) {
         return null;
     }
+
+    @Override
+    public List<Rods> findAllType() {
+        return null;
+    }
 }

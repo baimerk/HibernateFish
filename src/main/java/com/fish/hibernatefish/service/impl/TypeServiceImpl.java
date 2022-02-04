@@ -40,4 +40,9 @@ public class TypeServiceImpl implements BaseService<Rods> {
     public Rods findByLoginAndPassword(String login, String password) {
         return null;
     }
+
+    @Override
+    public List<Rods> findAllType() {
+        return null;
+    }
 }

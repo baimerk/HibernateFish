@@ -9,6 +9,13 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 public class RodsRepositoryImpl implements BaseRepository<RodsCharacter> {
+
+    @Override
+    public List<RodsCharacter> findAllType(){
+        Session session = ConfigSessionFactory.getSessionFactory().openSession();
+        return session.createQuery("from RodsCharacter where rods = 1").getResultList();
+    }
+
     @Override
     public List<RodsCharacter> findAll() {
         Session session = ConfigSessionFactory.getSessionFactory().openSession();

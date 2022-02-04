@@ -9,4 +9,6 @@ public interface BaseService<T> {
     T update(T entity);
     boolean deleteById(long id);
     T findByLoginAndPassword(String login, String password);
+
+    List<T> findAllType();
 }

@@ -21,19 +21,21 @@
                 <td class="text-center align-middle">
                     <label for="inputPassword" class="form-label">Password</label>
                     <input type="password" class="form-control" name="password" id="inputPassword" required></td>
-                <td class="text-center align-middle">
-                    <label for="inputW" class="form-label">Weight,g</label>
-                    <input type="text" class="form-control" name="weight" id="inputW" required></td>
-                <td class="text-center align-middle">
-                    <label for="inputS" class="form-label">Section</label>
-                    <input type="text" class="form-control" name="section" id="inputS" required></td>
-                <td class="text-center align-middle">
-                    <label for="inputTS" class="form-label">Transp.length,sm</label>
-                    <input type="text" class="form-control" name="tLength" id="inputTS" required></td>
+                <div class="mb-3">
+                    Are you married?
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="isMarried" id="inlineRadio1" value="true">
+                        <label class="form-check-label" for="inlineRadio1">True</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="isMarried" id="inlineRadio2" value="false"
+                               checked>
+                        <label class="form-check-label" for="inlineRadio2">False</label>
+                    </div>
 
                 <td class="text-center align-middle">
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="submit" class="btn btn-primary">Add rod</button>
+                        <button type="submit" class="btn btn-primary">Add user</button>
                         <button type="reset" class="btn btn-secondary">Reset</button>
                     </div>
                 </td>

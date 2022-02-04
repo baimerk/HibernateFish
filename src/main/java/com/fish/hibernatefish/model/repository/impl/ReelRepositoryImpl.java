@@ -47,4 +47,9 @@ public class ReelRepositoryImpl implements BaseRepository<Reels> {
     public Reels findByLoginAndPassword(String login, String password) {
         return null;
     }
+
+    @Override
+    public List<Reels> findAllType() {
+        return null;
+    }
 }

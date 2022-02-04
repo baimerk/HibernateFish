@@ -267,7 +267,7 @@ public class UserServlet extends HttpServlet {
         user.setLogin(login);
         user.setPassword(password);
         service.update(user);
-        resp.sendRedirect("manage");
+        resp.sendRedirect("users");
     }
 
     private void deleteUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

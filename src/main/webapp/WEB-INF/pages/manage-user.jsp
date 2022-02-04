@@ -23,5 +23,7 @@
     <h3>THE TABLE USERS</h3>
     <p>You are edit and delete users!</p>
     <%@ include file="/WEB-INF/fragments/group.jsp"%>
+    <%@ include file="/WEB-INF/fragments/add-users.jsp"%>
+    <%@ include file="/WEB-INF/fragments/rods.jsp"%>
 </body>
 </html>

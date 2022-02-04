@@ -83,5 +83,10 @@ public class UserRepositoryImpl implements BaseRepository<User> {
             return null;
         }
     }
+
+    @Override
+    public List<User> findAllType() {
+        return null;
+    }
 }
 
