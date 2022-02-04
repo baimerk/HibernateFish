@@ -12,7 +12,6 @@
     <style>
         <%@ include file="/css/stylesCol.css" %>
     </style>
-
 </head>
 <body>
 <div class="all-classes-container">
@@ -37,7 +36,7 @@
             <div class="carousel-caption">
                 <h3>Arena Series Reels</h3>
                 <p>It is good reels</p>
-                <div><a href="${pageContext.request.contextPath}/list-of-reels-overview_arena" class="btYel">Buy items</a></div><br>
+                <div><a href="${pageContext.request.contextPath}/list-of-reels/overview_arena" class="btYel">Buy items</a></div><br>
             </div>
         </div>
 
@@ -46,7 +45,7 @@
             <div class="carousel-caption">
                 <h3>Blue Bird</h3>
                 <p>It is reels too</p>
-                <div><a href="overview_bluebird" class="btBlue" role="button">Buy items</a></div><br>
+                <div><a href="${pageContext.request.contextPath}/list-of-reels/overview_bluebird" class="btBlue" role="button">Buy items</a></div><br>
             </div>
         </div>
 
@@ -55,7 +54,7 @@
             <div class="carousel-caption">
                 <h3>Hurricane Series</h3>
                 <p>It is incredible reels</p>
-                <div><a href="overview_hurricane" class="btHur" role="button">Buy items</a></div><br>
+                <div><a href="${pageContext.request.contextPath}/list-of-reels/overview_hurricane" class="btHur" role="button">Buy items</a></div><br>
             </div>
         </div>
 
@@ -64,7 +63,7 @@
             <div class="carousel-caption">
                 <h3>Sapphire Series</h3>
                 <p>It is incredible rods</p>
-                <div><a href="overview_sapphire" class="btBlack" role="button">Buy items</a></div><br>
+                <div><a href="${pageContext.request.contextPath}/list-of-reels/overview_sapphire" class="btBlack" role="button">Buy items</a></div><br>
             </div>
         </div>
 
@@ -73,7 +72,7 @@
             <div class="carousel-caption">
                 <h3>Sirius Series</h3>
                 <p>It is incredible reels</p>
-                <div><a href="overview_sirius" class="btk" role="button">Buy items</a></div><br>
+                <div><a href="${pageContext.request.contextPath}/list-of-reels/overview_sirius" class="btk" role="button">Buy items</a></div><br>
             </div>
         </div>
 
@@ -82,7 +81,7 @@
             <div class="carousel-caption">
                 <h3>X1 Series</h3>
                 <p>It is incredible rods</p>
-                <div><a href="overview_x1" class="btX" role="button">Buy items</a></div><br>
+                <div><a href="${pageContext.request.contextPath}/list-of-reels/overview_x1" class="btX" role="button">Buy items</a></div><br>
             </div>
         </div>
     </div>

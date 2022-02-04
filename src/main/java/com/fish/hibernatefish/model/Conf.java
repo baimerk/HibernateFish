@@ -1,5 +1,5 @@
 package com.fish.hibernatefish.model;
 
 public enum Conf {
-    BLUEBIRD, ARENA, BLACKSWAN
+    BLUEBIRD, ARENA, BLACKSWAN, COBALT, CREED, WHITEBIRD
 }

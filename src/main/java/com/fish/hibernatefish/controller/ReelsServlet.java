@@ -14,19 +14,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/list-of-reels*")
+@WebServlet(urlPatterns = {"/list-of-reels/*"})
 public class ReelsServlet extends HttpServlet {
+    private BaseService<Reels> reelsBaseService = new ReelsServiceImpl();
 
     private BaseService<Reels> service = new ReelsServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
-        String action = req.getServletPath();
+        String action = req.getPathInfo();
 
         try {
             switch (action) {
                 //case "/registration" -> registrationForm(req, resp);
-                case "/list-of-reels-overview_arena" -> overViewArena(req,resp);
+                case "/overview_arena" -> overViewArena(req,resp);
                 case "/overview_bluebird" -> overViewBB(req,resp);
                 case "/overview_hurricane" -> overViewHurricane(req,resp);
                 case "/overview_sapphire" -> overViewSapphire(req,resp);
@@ -53,14 +54,17 @@ public class ReelsServlet extends HttpServlet {
     }
 
     private void overViewArena(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        String search = req.getParameter("search");
+        List<Reels> reels = reelsBaseService.findAll();
+        req.setAttribute("listReels", reels);
         ServletContext servletContext = getServletContext();
-        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/manage-form.jsp");
+        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/overview-arena.jsp");
         dispatcher.forward(req,resp);
     }
 
     private void overViewBB(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         ServletContext servletContext = getServletContext();
-        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("WEB-INF/pages/overview-bluebird.jsp");
+        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/overview-bluebird.jsp");
         dispatcher.forward(req, resp);
     }
 
@@ -68,7 +72,7 @@ public class ReelsServlet extends HttpServlet {
         List<Reels> reels = service.findAll();
         req.setAttribute("listReels", reels);
         ServletContext servletContext = getServletContext();
-        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("WEB-INF/pages/overview-arena.jsp");
+        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/overview-arena.jsp");
         dispatcher.forward(req, resp);
         resp.sendRedirect("overviewArena");
     }
@@ -77,7 +81,7 @@ public class ReelsServlet extends HttpServlet {
         List<Reels> reels = service.findAll();
         req.setAttribute("listReels", reels);
         ServletContext servletContext = getServletContext();
-        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("WEB-INF/pages/overview-arena.jsp");
+        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/overview-arena.jsp");
         dispatcher.forward(req, resp);
         resp.sendRedirect("overviewArena");
     }
@@ -86,7 +90,7 @@ public class ReelsServlet extends HttpServlet {
         List<Reels> reels = service.findAll();
         req.setAttribute("listReels", reels);
         ServletContext servletContext = getServletContext();
-        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("WEB-INF/pages/overview-arena.jsp");
+        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/overview-arena.jsp");
         dispatcher.forward(req, resp);
         resp.sendRedirect("overviewArena");
     }
@@ -95,7 +99,7 @@ public class ReelsServlet extends HttpServlet {
         List<Reels> reels = service.findAll();
         req.setAttribute("listReels", reels);
         ServletContext servletContext = getServletContext();
-        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("WEB-INF/pages/overview-arena.jsp");
+        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/overview-arena.jsp");
         dispatcher.forward(req, resp);
         resp.sendRedirect("overviewArena");
     }

@@ -19,7 +19,7 @@
 <div class="container">
   <h2 class="text-center">Register Form:</h2>
   <div class="row justify-content-center">
-    <form class="col-6 needs-validation" action="add" novalidate method="post">
+    <form class="col-6 needs-validation" action="${pageContext.request.contextPath}/base/add" novalidate method="post">
       <div class="mb-3">
         <label for="inputName" class="form-label">First Name</label>
         <input type="text" class="form-control" name="name" id="inputName" required>

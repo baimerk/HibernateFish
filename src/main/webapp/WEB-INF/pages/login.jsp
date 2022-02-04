@@ -18,7 +18,7 @@
 <div class="container">
     <h2 class="text-center">Log in Form:</h2>
     <div class="row justify-content-center">
-        <form class="col-6 needs-validation" action="${pageContext.request.contextPath}/user/loginAction" method="post" novalidate>
+        <form class="col-6 needs-validation" action="${pageContext.request.contextPath}/base/loginAction" method="post" novalidate>
             <div class="mb-3">
                 <label for="inputLogin" class="form-label">Login</label>
                 <input type="text" class="form-control" name="login" id="inputLogin" required>
@@ -36,7 +36,7 @@
                 </label>
             </div>
             <button type="submit" class="btn btn-primary">Log in</button>
-            <p class="mb-5 pb-lg-2">Don't have an account? <a class="text-decoration-none" href="user/registration">Register here</a></p>
+            <p class="mb-5 pb-lg-2">Don't have an account? <a class="text-decoration-none" href="${pageContext.request.contextPath}/base/registration">Register here</a></p>
         </form>
         <script>
             <%@ include file="/js/validation.js" %>

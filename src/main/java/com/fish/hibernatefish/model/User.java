@@ -1,7 +1,9 @@
 package com.fish.hibernatefish.model;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "fishman")
@@ -19,9 +21,14 @@ public class User {
 
     private String login;
     private String password;
+    private int age;
 
     @Enumerated(EnumType.ORDINAL)
     private Role role;
+
+    @OneToMany (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private List<RodsCharacter> rodsCharacters;
 
     public User() {
     }
@@ -33,6 +40,26 @@ public class User {
         this.address = address;
         this.isMarried = isMarried;
         this.role = role;
+    }
+
+    public User(long id, String name, String lastName, String address, boolean isMarried, String login, String password, int age, Role role) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.address = address;
+        this.isMarried = isMarried;
+        this.login = login;
+        this.password = password;
+        this.age = age;
+        this.role = role;
+    }
+
+    public User(String name, String lastName, int age, String address, boolean isMarried) {
+        this.name = name;
+        this.lastName = lastName;
+        this.age = age;
+        this.address = address;
+        this.isMarried = isMarried;
     }
 
     public User(String name, String lastName, String address, boolean isMarried, String login, String password) {
@@ -49,6 +76,14 @@ public class User {
         this.lastName = lastName;
         this.address = address;
         this.isMarried = isMarried;
+    }
+
+    public List<RodsCharacter> getRodsCharacters() {
+        return rodsCharacters;
+    }
+
+    public void setRodsCharacters(List<RodsCharacter> rodsCharacters){
+        this.rodsCharacters = rodsCharacters;
     }
 
     public long getId() {
@@ -121,6 +156,14 @@ public class User {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return id == user.id;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     @Override

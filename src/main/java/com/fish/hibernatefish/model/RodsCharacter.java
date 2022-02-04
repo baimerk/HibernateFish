@@ -2,6 +2,7 @@ package com.fish.hibernatefish.model;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class RodsCharacter {
@@ -20,6 +21,15 @@ public class RodsCharacter {
     private String tLength;
     @Enumerated(EnumType.ORDINAL)
     private Conf rods;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "rods_id")
+    private List<Rods> rod;
+
+    public List<Rods> getRod(){
+        return rod;
+    }
+
+    public void setRod(List<Rods> rods){}
 
     public RodsCharacter() {
     }

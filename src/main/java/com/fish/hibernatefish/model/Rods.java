@@ -14,20 +14,20 @@ public class Rods {
     private String waterType;
 
     @Enumerated(EnumType.ORDINAL)
-    private Conf rods;
+    private Conf rodsType;
 
     public Rods() {
     }
 
-    public Rods(String waterType, Conf rods) {
+    public Rods(String waterType, Conf rodsType) {
         this.waterType = waterType;
-        this.rods = rods;
+        this.rodsType = rodsType;
     }
 
-    public Rods(long id, String waterType, Conf rods) {
+    public Rods(long id, String waterType, Conf rodsType) {
         this.id = id;
         this.waterType = waterType;
-        this.rods = rods;
+        this.rodsType = rodsType;
     }
 
     public long getId() {
@@ -47,11 +47,11 @@ public class Rods {
     }
 
     public Conf getRods() {
-        return rods;
+        return rodsType;
     }
 
-    public void setRods(Conf rods) {
-        this.rods = rods;
+    public void setRods(Conf rodsType) {
+        this.rodsType = rodsType;
     }
 
 }

@@ -21,7 +21,7 @@ public class AuthorizationFilter implements Filter {
         if (user != null) {
             filterChain.doFilter(servletRequest, servletResponse);
         }
-        String path = "/user/login";
+        String path = "/login";
         response.sendRedirect(path);
     }
 

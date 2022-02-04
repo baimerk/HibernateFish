@@ -1,4 +1,4 @@
-<form class="col-6 needs-validation" action="user/addRod" novalidate method="post">
+<form class="col-6 needs-validation" action="${pageContext.request.contextPath}/base/addRod" novalidate method="post">
 <div class="container">
 <table class="table caption-top">
   <thead class="table-success">

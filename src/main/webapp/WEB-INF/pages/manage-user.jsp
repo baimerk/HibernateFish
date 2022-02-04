@@ -18,12 +18,10 @@
 <div>
     <%@ include file="/WEB-INF/fragments/navigation.jsp" %>
 </div>
-
 <br>
 <div class="container text-center">
-    <h3>THE TABLE REELS</h3>
-    <p>You are edit and delete reels!</p>
-<%@ include file="/WEB-INF/fragments/reels.jsp" %>
-<%@ include file="/WEB-INF/fragments/addReels.jsp" %>
+    <h3>THE TABLE USERS</h3>
+    <p>You are edit and delete users!</p>
+    <%@ include file="/WEB-INF/fragments/group.jsp"%>
 </body>
 </html>

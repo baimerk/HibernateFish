@@ -17,21 +17,9 @@
 <div class="all-classes-container">
     <%@ include file="/WEB-INF/fragments/navigation.jsp" %>
 </div>
-fsd;fmsmfamvpmer
-sdfsadfasdf
-sadfsdf
-sdfasdfsa
-sdfasdfs
-sadfa
-sdfds
-adfs
-dfsdfasdf
-sdfasdf
-
 <div>
     <div class="container">
-        <%@ include file="/WEB-INF/fragments/group.jsp"%>
-        <%@ include file="/WEB-INF/fragments/rods_character.jsp"%>
+        <%@ include file="/WEB-INF/fragments/reel-character-by-model.jsp"%>
         <%@ include file="/WEB-INF/fragments/rods.jsp"%>
     </div>
 </div>

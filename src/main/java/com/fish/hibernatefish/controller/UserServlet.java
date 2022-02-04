@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@WebServlet(urlPatterns = "/user*")
+@WebServlet(urlPatterns = {"/base/*"})
 public class UserServlet extends HttpServlet {
     private BaseService<User> service;
     private BaseService<RodsCharacter> download = new RodsServiceImpl();
@@ -32,26 +32,29 @@ public class UserServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
-        String action = req.getServletPath();
+        String action = req.getPathInfo();
 
         try {
             switch (action) {
-                case "user/registration" -> registrationForm(req, resp);
-                case "/user/login" -> loginForm(req, resp);
-                case "/user/loginAction" -> loginUser(req, resp);
-                case "/user/logoutAction" -> logoutUser(req, resp);
-                case "user/add" -> addUser(req, resp);
-                case "user/addRod" -> addRod(req, resp);
-                case "user/addReels" -> addReels(req, resp);
-                case "user/update" -> updateUser(req, resp);
-                case "user/updateRods" -> updateRods(req, resp);
-                case "user/delete" -> deleteUser(req, resp);
-                case "user/edit" -> showEditForm(req, resp);
-                case "user/editRodsCh" -> showEditFormRods(req, resp);
-                case "user/deleteRodsCh" -> deleteRodsCh(req, resp);
-                case "user/catalog" -> showCatalog(req,resp);
-                case "user/manage" -> manageForm(req,resp);
-                case "user/reels" -> listReels(req,resp);
+                case "/registration" -> registrationForm(req, resp);
+                case "/login" -> loginForm(req, resp);
+                case "/loginAction" -> loginUser(req, resp);
+                case "/logoutAction" -> logoutUser(req, resp);
+                case "/add" -> addUser(req, resp);
+                case "/addQ" -> addUserQvick(req,resp);
+                case "/addRod" -> addRod(req, resp);
+                case "/addReels" -> addReels(req, resp);
+                case "/update" -> updateUser(req, resp);
+                case "/updateRods" -> updateRods(req, resp);
+                case "/delete" -> deleteUser(req, resp);
+                case "/edit" -> showEditForm(req, resp);
+                case "/editRodsCh" -> showEditFormRods(req, resp);
+                case "/deleteRodsCh" -> deleteRodsCh(req, resp);
+                case "/catalog" -> showCatalog(req,resp);
+                case "/manage" -> manageForm(req,resp);
+                case "/reels" -> listReels(req,resp);
+                case "/users" -> manageUser(req,resp);
+                case "/cabinet" -> userCabinet(req,resp);
                 default -> listUser(req, resp);
             }
         } catch (ServletException | IOException e) {
@@ -84,6 +87,27 @@ public class UserServlet extends HttpServlet {
         resp.sendRedirect("manage");
     }
 
+    private void manageUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String search = req.getParameter("search");
+        List<User> users = service.findAll();
+        req.setAttribute("listUser", users);
+        ServletContext servletContext = getServletContext();
+        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/manage-user.jsp");
+        dispatcher.forward(req,resp);
+        resp.sendRedirect("users");
+    }
+
+    private void userCabinet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        User user=(User) session.getAttribute("user");
+        long userId = user.getId();
+        req.setAttribute("rods", service.findById(userId).getRodsCharacters());
+//        req.setAttribute("cars", user.getCars());
+        ServletContext servletContext = getServletContext();
+        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/user-cabinet.jsp");
+        dispatcher.forward(req, resp);
+    }
+
     private void listUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String search = req.getParameter("search");
         List<User> users = service.findAll();
@@ -96,7 +120,7 @@ public class UserServlet extends HttpServlet {
         req.setAttribute("listUser", users);
         req.setAttribute("listRods", rodsCharacters);
         ServletContext servletContext = getServletContext();
-        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/index.jsp");
+        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/list-user.jsp");
         dispatcher.forward(req, resp);
     }
 
@@ -128,6 +152,28 @@ public class UserServlet extends HttpServlet {
             session.setAttribute("userRole", user.getRole().name());
         }
         resp.sendRedirect("list");
+    }
+
+    private void addUserQvick(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        String name = req.getParameter("name");
+        String lName = req.getParameter("lastName");
+        int age = Integer.parseInt(req.getParameter("age"));
+        String address = req.getParameter("address");
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
+        boolean isMarried = req.getParameter("isMarried").equals("true");
+        Role role = Role.USER;
+        User user = new User(name, lName, age, address, isMarried);
+        user.setLogin(login);
+        user.setPassword(password);
+        user.setRole(role);
+        boolean isAdded = service.create(user);
+        if (isAdded) {
+            session.setAttribute("user", user);
+            session.setAttribute("userRole", user.getRole().name());
+        }
+        resp.sendRedirect("users");
     }
 
     private void addRod(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -199,15 +245,13 @@ public class UserServlet extends HttpServlet {
             dispatcher.forward(req, resp);
 
         }
-        String path = req.getContextPath() + "/index.jsp";
-        resp.sendRedirect(path);
+        resp.sendRedirect("list");
     }
 
     private void logoutUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         session.invalidate();
-        String path = req.getContextPath() + "/index.jsp";
-        resp.sendRedirect(path);
+        resp.sendRedirect("list");
     }
 
     private void updateUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
