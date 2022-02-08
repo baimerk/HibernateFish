@@ -17,6 +17,26 @@ public class RodsRepositoryImpl implements BaseRepository<RodsCharacter> {
     }
 
     @Override
+    public List<RodsCharacter> findAllType1() {
+        return null;
+    }
+
+    @Override
+    public List<RodsCharacter> findAllType2() {
+        return null;
+    }
+
+    @Override
+    public List<RodsCharacter> findAllType3() {
+        return null;
+    }
+
+    @Override
+    public List<RodsCharacter> findAllType4() {
+        return null;
+    }
+
+    @Override
     public List<RodsCharacter> findAll() {
         Session session = ConfigSessionFactory.getSessionFactory().openSession();
         return session.createQuery("from RodsCharacter ").getResultList();

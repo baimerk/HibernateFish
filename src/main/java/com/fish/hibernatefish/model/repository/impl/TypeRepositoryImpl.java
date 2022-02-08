@@ -43,4 +43,24 @@ public class TypeRepositoryImpl implements BaseRepository<Rods> {
     public List<Rods> findAllType() {
         return null;
     }
+
+    @Override
+    public List<Rods> findAllType1() {
+        return null;
+    }
+
+    @Override
+    public List<Rods> findAllType2() {
+        return null;
+    }
+
+    @Override
+    public List<Rods> findAllType3() {
+        return null;
+    }
+
+    @Override
+    public List<Rods> findAllType4() {
+        return null;
+    }
 }

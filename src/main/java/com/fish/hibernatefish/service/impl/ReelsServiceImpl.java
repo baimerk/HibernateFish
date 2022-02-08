@@ -17,6 +17,31 @@ public class ReelsServiceImpl implements BaseService<Reels> {
     }
 
     @Override
+    public List<Reels> findAllType() {
+        return repository.findAllType();
+    }
+
+    @Override
+    public List<Reels> findAllType1(){
+        return repository.findAllType1();
+    }
+
+    @Override
+    public List<Reels> findAllType2() {
+        return repository.findAllType2();
+    }
+
+    @Override
+    public List<Reels> findAllType3() {
+        return repository.findAllType3();
+    }
+
+    @Override
+    public List<Reels> findAllType4() {
+        return repository.findAllType4();
+    }
+
+    @Override
     public Reels findById(long id) {
         return null;
     }
@@ -38,11 +63,6 @@ public class ReelsServiceImpl implements BaseService<Reels> {
 
     @Override
     public Reels findByLoginAndPassword(String login, String password) {
-        return null;
-    }
-
-    @Override
-    public List<Reels> findAllType() {
         return null;
     }
 }

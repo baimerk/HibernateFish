@@ -14,22 +14,29 @@
     </style>
 </head>
 <body>
-<div class="all-classes-container">
-    <%@ include file="/WEB-INF/fragments/navigation.jsp" %>
-</div>
+<%@ include file="/WEB-INF/fragments/navigation.jsp" %>
+<br>
+<br>
+<br>
+<div class="container text-center">
+    <h3>Ваше снаряжение</h3>
+    <p>Здесь вы можете посмотреть характеристики, удалить или изменить ваше снаряжение</p>
 <div class="container" style="background: antiquewhite">
     <table class="table table-hover caption-top justify-content-center">
-        <caption>Ваше снаряжение</caption>
+        <caption>Ваши спиннинги</caption>
         <thead>
         <tr>
             <th class="text-center" scope="col">#</th>
-            <th class="text-center" scope="col">Марка</th>
-            <th class="text-center" scope="col">Модель</th>
-            <th class="text-center" scope="col">Год выпуска</th>
-            <th class="text-center" scope="col">Тип кузова</th>
-            <th class="text-center" scope="col">Тип двигателя</th>
-            <th class="text-center" scope="col">Объем двигателя</th>
-            <th class="text-center" scope="col">Цвет</th>
+            <th class="text-center" scope="col">Model</th>
+            <th class="text-center" scope="col">Length,m</th>
+            <th class="text-center" scope="col">Power</th>
+            <th class="text-center" scope="col">Lure test,g</th>
+            <th class="text-center" scope="col">Line test</th>
+            <th class="text-center" scope="col">Action</th>
+            <th class="text-center" scope="col">Weight,g</th>
+            <th class="text-center" scope="col">Section</th>
+            <th class="text-center" scope="col">Transp.length,sm</th>
+            <th class="text-center" scope="col">Rods Type</th>
             <th class="text-center" scope="col">Оценка</th>
             <th class="text-center" scope="col">Комментарий</th>
             <c:if test="${sessionScope.userRole.equals('USER')}">
@@ -37,16 +44,19 @@
             </c:if>
         </tr>
         </thead>
-        <c:forEach var="car" items="${requestScope.cars}" varStatus="st">
+        <c:forEach var="rodsCharacters" items="${requestScope.myRods}" varStatus="st">
             <tr>
                 <th class="text-center align-middle" scope="row">${st.index}</th>
-                <td class="text-center align-middle">${car.brand}</td>
-                <td class="text-center align-middle">${car.model}</td>
-                <td class="text-center align-middle">${car.yearOfManufacture}</td>
-                <td class="text-center align-middle">${car.bodyType}</td>
-                <td class="text-center align-middle">${car.engineType}</td>
-                <td class="text-center align-middle">${car.engineVolume}</td>
-                <td class="taext-center align-middle">${car.color}</td>
+                <td class="text-center align-middle">${rodsCharacters.model}</td>
+                <td class="text-center align-middle">${rodsCharacters.length}</td>
+                <td class="text-center align-middle">${rodsCharacters.power}</td>
+                <td class="text-center align-middle">${rodsCharacters.lureTest}</td>
+                <td class="text-center align-middle">${rodsCharacters.lineTest}</td>
+                <td class="text-center align-middle">${rodsCharacters.action}</td>
+                <td class="text-center align-middle">${rodsCharacters.weight}</td>
+                <td class="text-center align-middle">${rodsCharacters.section}</td>
+                <td class="text-center align-middle">${rodsCharacters.tLength}</td>
+                <td class="text-center align-middle">${rodsCharacters.rods}</td>
                 <td class="text-center align-middle">${car.mark}</td>
                 <td class="text-center align-middle">${car.comment}</td>
                 <td class="text-center align-middle">

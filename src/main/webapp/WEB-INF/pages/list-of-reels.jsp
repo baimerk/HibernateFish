@@ -96,6 +96,50 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
+<div class="row">
+    <div class="col-sm-2">
+        <p class="text-center"><strong>Arena</strong></p><br>
+        <a href="${pageContext.request.contextPath}/list-of-reels/overview_arena">
+            <img src="https://en.favorite-fishing.com/images/thumbnails/280/280/detailed/3/Arena-reel-main.png" class="img-circle person" alt="Arena" width="255" height="255">
+            <p class="text-center">From $119.99</p>
+        </a>
+    </div>
+    <div class="col-sm-2">
+        <p class="text-center"><strong>Blue Bird</strong></p><br>
+        <a href="${pageContext.request.contextPath}/list-of-reels/overview_bluebird">
+            <img src="https://en.favorite-fishing.com/images/thumbnails/280/280/detailed/3/BlueBird-reel-main.png" class="img-circle person" alt="Blue Bird" width="255" height="255">
+            <p class="text-center">From $79.99</p>
+        </a>
+    </div>
+    <div class="col-sm-2">
+        <p class="text-center"><strong>Hurricane</strong></p><br>
+        <a href="${pageContext.request.contextPath}/list-of-reels/overview_hurricane">
+            <img src="https://en.favorite-fishing.com/images/thumbnails/280/280/detailed/3/Hurricane-reel-main.png" class="img-circle person" alt="Hurricane" width="255" height="255">
+            <p class="text-center">From $99.99</p>
+        </a>
+    </div>
+    <div class="col-sm-2">
+        <p class="text-center"><strong>Sapphire</strong></p><br>
+        <a href="${pageContext.request.contextPath}/list-of-reels/overview_sapphire">
+            <img src="https://en.favorite-fishing.com/images/thumbnails/280/280/detailed/5/saphire_02.png" class="img-circle person" alt="Sapphire" >
+            <p class="text-center">From $64.99</p>
+        </a>
+    </div>
+    <div class="col-sm-2">
+        <p class="text-center"><strong>Sirius</strong></p><br>
+        <a href="#${pageContext.request.contextPath}/list-of-reels/overview_sirius">
+            <img src="https://en.favorite-fishing.com/images/thumbnails/280/280/detailed/5/sirius_02.png" class="img-circle person" alt="Hurricane" width="255" height="255">
+            <p class="text-center">From $129.99</p>
+        </a>
+    </div>
+    <div class="col-sm-2">
+        <p class="text-center"><strong>X1</strong></p><br>
+        <a href="#${pageContext.request.contextPath}/list-of-reels/overview_x1">
+            <img src="https://en.favorite-fishing.com/images/thumbnails/280/280/detailed/4/x1Reel_4000_white1_main.jpg" class="img-circle person" alt="Hurricane" width="255" height="255">
+            <p class="text-center">From $79.99</p>
+        </a>
+    </div>
+</div>
 <div class="container text-center">
     <h3>Its all about reels</h3>
     <p>Reels</p>

@@ -64,6 +64,11 @@
                 <input type="text" class="form-control" name="tLength" value="${requestScope.existedRods.tLength}"
                        id="inputtLength" required>
             </div>
+            <div class="mb-3">
+                <label for="inputRType" class="form-label">Rods Type</label>
+                <input type="text" class="form-control" name="tLength" value="${requestScope.existedRods.rods}"
+                       id="inputRType" required>
+            </div>
             <button type="submit" class="btn btn-primary">Save</button>
             <button type="reset" class="btn btn-secondary">Reset</button>
         </form>

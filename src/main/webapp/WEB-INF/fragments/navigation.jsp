@@ -29,6 +29,9 @@
                         <li><a href="${pageContext.request.contextPath}/list-of-rods/">Fishing Rods</a></li>
                         <li><a href="${pageContext.request.contextPath}/list-of-reels/">Fishing Reels</a></li>
                         <li><a href="#">Good assemblies experience</a></li>
+                        <c:if test="${sessionScope.user.role == 'ADMIN' or sessionScope.user.role =='USER'}">
+                            <li><a href="${pageContext.request.contextPath}/base/cabinet">My Cabinet</a></li>
+                        </c:if>
                     </ul>
                 </li>
                 <li><a href="#band">SERVICE</a></li>

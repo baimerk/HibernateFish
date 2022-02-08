@@ -16,6 +16,34 @@ public class ReelRepositoryImpl implements BaseRepository<Reels> {
     }
 
     @Override
+    public List<Reels> findAllType() { // Blue Bird = 0 in conf
+        Session session = ConfigSessionFactory.getSessionFactory().openSession();
+        return session.createQuery("from Reels where model = 0").getResultList();
+    }
+
+    @Override
+    public List<Reels> findAllType1(){ // Arena = 1 in conf
+        Session session = ConfigSessionFactory.getSessionFactory().openSession();
+        return session.createQuery("from Reels where model = 1").getResultList();
+    }
+
+    @Override
+    public List<Reels> findAllType2() {
+        Session session = ConfigSessionFactory.getSessionFactory().openSession();
+        return session.createQuery("from Reels where model = 2").getResultList();
+    }
+
+    @Override
+    public List<Reels> findAllType3() {
+        return null;
+    }
+
+    @Override
+    public List<Reels> findAllType4() {
+        return null;
+    }
+
+    @Override
     public Reels findById(long id) {
         return null;
     }
@@ -48,8 +76,4 @@ public class ReelRepositoryImpl implements BaseRepository<Reels> {
         return null;
     }
 
-    @Override
-    public List<Reels> findAllType() {
-        return null;
-    }
 }

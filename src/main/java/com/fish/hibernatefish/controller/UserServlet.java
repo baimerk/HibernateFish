@@ -206,26 +206,28 @@ public class UserServlet extends HttpServlet {
 
     private void addReels(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        String modelName = req.getParameter("modelName");
-        String bodyMaterial = req.getParameter("bodyMaterial");
-        String bearings = req.getParameter("bearings");
-        String familyType = req.getParameter("familyType");
-        String handle = req.getParameter("handle");
+        String size = req.getParameter("size");
+        String nylonLine = req.getParameter("nylonLine");
+        String ballBearings = req.getParameter("ballBearings");
+        String gearRatio = req.getParameter("gearRatio");
+        String weight = req.getParameter("weight");
+        String lineRetrieve = req.getParameter("lineRetrieve");
         String spoolMaterial = req.getParameter("spoolMaterial");
-        String models = req.getParameter("models");
-        String waterType = req.getParameter("waterType");
-        Reels reels = new Reels(modelName,bodyMaterial,bearings,familyType,handle,spoolMaterial,models,waterType);
-        reels.setModelName(modelName);
-        reels.setBodyMaterial(bodyMaterial);
-        reels.setBearings(bearings);
-        reels.setFamilyType(familyType);
-        reels.setHandle(handle);
+        String price = req.getParameter("price");
+        Conf model = Conf.valueOf(req.getParameter("model"));
+        Reels reels = new Reels(size, nylonLine, ballBearings, gearRatio, weight, lineRetrieve, spoolMaterial, price, model);
+        reels.setSize(size);
+        reels.setNylonLine(nylonLine);
+        reels.setBallBearings(ballBearings);
+        reels.setGearRatio(gearRatio);
+        reels.setWeight(weight);
         reels.setSpoolMaterial(spoolMaterial);
-        reels.setModels(models);
-        reels.setWaterType(waterType);
+        reels.setLineRetrieve(lineRetrieve);
+        reels.setPrice(price);
         boolean isAdded = reelsBaseService.create(reels);
         if (isAdded) {
-            session.setAttribute("modelName", reels);
+            session.setAttribute("size", reels);
+            session.setAttribute("reelModel", reels);
         }
         resp.sendRedirect("reels");
     }
@@ -323,7 +325,8 @@ public class UserServlet extends HttpServlet {
         String weight = req.getParameter("weight");
         String section = req.getParameter("section");
         String tLength = req.getParameter("tLength");
-        RodsCharacter rodsCharacter = new RodsCharacter(model, length, power, lureTest, lineTest, action, weight, section, tLength);
+        Conf rods = Conf.valueOf(req.getParameter("rods"));
+        RodsCharacter rodsCharacter = new RodsCharacter(id, model, length, power, lureTest, lineTest, action, weight, section, tLength, rods);
         rodsCharacter.setId(id);
         rodsCharacter.setModel(model);
         rodsCharacter.setLength(length);
@@ -334,6 +337,7 @@ public class UserServlet extends HttpServlet {
         rodsCharacter.setWeight(weight);
         rodsCharacter.setSection(section);
         rodsCharacter.setLength(tLength);
+        rodsCharacter.setRods(rods);
         download.update(rodsCharacter);
         resp.sendRedirect("manage");
     }

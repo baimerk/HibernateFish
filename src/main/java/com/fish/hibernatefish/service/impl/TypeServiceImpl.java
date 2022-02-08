@@ -1,5 +1,6 @@
 package com.fish.hibernatefish.service.impl;
 
+import com.fish.hibernatefish.model.Reels;
 import com.fish.hibernatefish.model.Rods;
 import com.fish.hibernatefish.model.repository.BaseRepository;
 import com.fish.hibernatefish.model.repository.impl.TypeRepositoryImpl;
@@ -14,6 +15,26 @@ public class TypeServiceImpl implements BaseService<Rods> {
     @Override
     public List<Rods> findAll() {
         return repository.findAll();
+    }
+
+    @Override
+    public List<Rods> findAllType1() {
+        return null;
+    }
+
+    @Override
+    public List<Rods> findAllType2() {
+        return null;
+    }
+
+    @Override
+    public List<Rods> findAllType3() {
+        return null;
+    }
+
+    @Override
+    public List<Rods> findAllType4() {
+        return null;
     }
 
     @Override

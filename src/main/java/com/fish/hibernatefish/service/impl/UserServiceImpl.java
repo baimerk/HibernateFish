@@ -1,5 +1,6 @@
 package com.fish.hibernatefish.service.impl;
 
+import com.fish.hibernatefish.model.Reels;
 import com.fish.hibernatefish.model.User;
 import com.fish.hibernatefish.model.repository.BaseRepository;
 import com.fish.hibernatefish.model.repository.impl.UserRepositoryImpl;
@@ -14,6 +15,26 @@ public class UserServiceImpl implements BaseService<User> {
     @Override
     public List<User> findAll() {
         return repository.findAll();
+    }
+
+    @Override
+    public List<User> findAllType1() {
+        return null;
+    }
+
+    @Override
+    public List<User> findAllType2() {
+        return null;
+    }
+
+    @Override
+    public List<User> findAllType3() {
+        return null;
+    }
+
+    @Override
+    public List<User> findAllType4() {
+        return null;
     }
 
     @Override

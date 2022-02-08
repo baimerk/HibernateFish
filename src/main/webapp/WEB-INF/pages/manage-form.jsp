@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html lang="en">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
     <title>List of Rods</title>
     <meta charset="utf-8">
@@ -14,16 +14,15 @@
     </style>
 </head>
 <body>
-<div>
 <%@ include file="/WEB-INF/fragments/navigation.jsp" %>
-</div>
+<br>
+<br>
 <br>
 <div class="container text-center">
     <h3>THE TABLE RODS</h3>
     <p>You are edit and delete rods!</p>
 <%@ include file="/WEB-INF/fragments/rods_character.jsp"%>
-<div>
 <%@ include file="/WEB-INF/fragments/add-rods.jsp"%>>
-</div>
+<div/>
 </body>
 </html>

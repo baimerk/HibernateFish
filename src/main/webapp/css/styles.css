@@ -109,3 +109,12 @@
 .dropdown-menu li a:hover {
     background-color: red !important;
 }
+.img-left {
+    margin: 0 5px 5px 0;
+    padding: 0;
+    float: left;
+}
+.box {overflow: hidden;}
+.image img {width: 200px;}
+.image {float: left; width: 200px;}
+.text {margin-left: 220px;}

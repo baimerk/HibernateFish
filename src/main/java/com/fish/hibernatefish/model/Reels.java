@@ -9,75 +9,106 @@ public class Reels {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String modelName; //продаваемое имя модели
-    private String bodyMaterial; // материал из которого изготовлена тело катушки
-    private String bearings; // количество подшипников
-    private String familyType; // тип семейства моделей
-    private String handle; // расположение ручки управления
+    private String size; //размер модели
+    private String nylonLine; // длина шнура рекомендуемая к применению
+    private String ballBearings; // количество подшипников
+    private String gearRatio; // тип размера катушки (легкая, средняя, большая и тп) размерность.\
+    private String weight; // вес
+    private String lineRetrieve; // извлекаемая длина шнура
     private String spoolMaterial; // материал шпули
-    private String models; // тип размера катушки (легкая, средняя, большая и тп) размерность.\
-    private String waterType;
+
+    private String price;@Enumerated(EnumType.ORDINAL)
+    private Conf model;
+
 
     public Reels() {
     }
 
-    public Reels(String modelName, String bodyMaterial, String bearings, String familyType, String handle, String spoolMaterial, String models, String waterType) {
-        this.modelName = modelName;
-        this.bodyMaterial = bodyMaterial;
-        this.bearings = bearings;
-        this.familyType = familyType;
-        this.handle = handle;
+    public Reels(String size, String nylonLine, String ballBearings, String gearRatio, String weight, String lineRetrieve, String spoolMaterial, String price, Conf model) {
+        this.size = size;
+        this.nylonLine = nylonLine;
+        this.ballBearings = ballBearings;
+        this.gearRatio = gearRatio;
+        this.weight = weight;
+        this.lineRetrieve = lineRetrieve;
         this.spoolMaterial = spoolMaterial;
-        this.models = models;
-        this.waterType = waterType;
+        this.price = price;
+        this.model = model;
     }
 
-    public String getWaterType() {
-        return waterType;
+    public Reels(String size, String nylonLine, String ballBearings, String gearRatio, String weight, String lineRetrieve, String spoolMaterial, String price) {
+        this.size = size;
+        this.nylonLine = nylonLine;
+        this.ballBearings = ballBearings;
+        this.gearRatio = gearRatio;
+        this.weight = weight;
+        this.lineRetrieve = lineRetrieve;
+        this.spoolMaterial = spoolMaterial;
+        this.price = price;
     }
 
-    public void setWaterType(String waterType) {
-        this.waterType = waterType;
+    public Conf getModel() {
+        return model;
     }
 
-    public String getModelName() {
-        return modelName;
+    public void setModel(Conf model) {
+        this.model = model;
     }
 
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
+    public long getId() {
+        return id;
     }
 
-    public String getBodyMaterial() {
-        return bodyMaterial;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public void setBodyMaterial(String bodyMaterial) {
-        this.bodyMaterial = bodyMaterial;
+    public String getSize() {
+        return size;
     }
 
-    public String getBearings() {
-        return bearings;
+    public void setSize(String size) {
+        this.size = size;
     }
 
-    public void setBearings(String bearings) {
-        this.bearings = bearings;
+    public String getNylonLine() {
+        return nylonLine;
     }
 
-    public String getFamilyType() {
-        return familyType;
+    public void setNylonLine(String nylonLine) {
+        this.nylonLine = nylonLine;
     }
 
-    public void setFamilyType(String familyType) {
-        this.familyType = familyType;
+    public String getBallBearings() {
+        return ballBearings;
     }
 
-    public String getHandle() {
-        return handle;
+    public void setBallBearings(String ballBearings) {
+        this.ballBearings = ballBearings;
     }
 
-    public void setHandle(String handle) {
-        this.handle = handle;
+    public String getGearRatio() {
+        return gearRatio;
+    }
+
+    public void setGearRatio(String gearRatio) {
+        this.gearRatio = gearRatio;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public String getLineRetrieve() {
+        return lineRetrieve;
+    }
+
+    public void setLineRetrieve(String lineRetrieve) {
+        this.lineRetrieve = lineRetrieve;
     }
 
     public String getSpoolMaterial() {
@@ -88,11 +119,19 @@ public class Reels {
         this.spoolMaterial = spoolMaterial;
     }
 
-    public String getModels() {
-        return models;
+    public String getPrice() {
+        return price;
     }
 
-    public void setModels(String models) {
-        this.models = models;
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Reels reels = (Reels) o;
+        return id == reels.id;
     }
 }

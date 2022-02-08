@@ -1,8 +1,10 @@
 package com.fish.hibernatefish.controller;
 
+import com.fish.hibernatefish.config.ConfigSessionFactory;
 import com.fish.hibernatefish.model.Reels;
 import com.fish.hibernatefish.service.BaseService;
 import com.fish.hibernatefish.service.impl.ReelsServiceImpl;
+import org.hibernate.Session;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -17,8 +19,6 @@ import java.util.List;
 @WebServlet(urlPatterns = {"/list-of-reels/*"})
 public class ReelsServlet extends HttpServlet {
     private BaseService<Reels> reelsBaseService = new ReelsServiceImpl();
-
-    private BaseService<Reels> service = new ReelsServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
@@ -54,8 +54,7 @@ public class ReelsServlet extends HttpServlet {
     }
 
     private void overViewArena(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        String search = req.getParameter("search");
-        List<Reels> reels = reelsBaseService.findAll();
+        List<Reels> reels = reelsBaseService.findAllType();
         req.setAttribute("listReels", reels);
         ServletContext servletContext = getServletContext();
         RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/overview-arena.jsp");
@@ -63,43 +62,48 @@ public class ReelsServlet extends HttpServlet {
     }
 
     private void overViewBB(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        List<Reels> reels = reelsBaseService.findAllType1();
+        req.setAttribute("listReels", reels);
         ServletContext servletContext = getServletContext();
         RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/overview-bluebird.jsp");
         dispatcher.forward(req, resp);
     }
 
     private void overViewHurricane(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        List<Reels> reels = service.findAll();
+        List<Reels> reels = reelsBaseService.findAllType2();
         req.setAttribute("listReels", reels);
         ServletContext servletContext = getServletContext();
-        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/overview-arena.jsp");
+        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/overview-hurricane.jsp");
         dispatcher.forward(req, resp);
         resp.sendRedirect("overviewArena");
     }
 
     private void overViewSapphire(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        List<Reels> reels = service.findAll();
+        Session session = ConfigSessionFactory.getSessionFactory().openSession();
+        List<Reels> reels = session.createQuery("from Reels where model = 3").getResultList();
         req.setAttribute("listReels", reels);
         ServletContext servletContext = getServletContext();
-        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/overview-arena.jsp");
+        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/overview-sapphire.jsp");
         dispatcher.forward(req, resp);
         resp.sendRedirect("overviewArena");
     }
 
     private void overViewSirius(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        List<Reels> reels = service.findAll();
+        Session session = ConfigSessionFactory.getSessionFactory().openSession();
+        List<Reels> reels = session.createQuery("from Reels where model = 4").getResultList();
         req.setAttribute("listReels", reels);
         ServletContext servletContext = getServletContext();
-        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/overview-arena.jsp");
+        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/overview-sirius.jsp");
         dispatcher.forward(req, resp);
         resp.sendRedirect("overviewArena");
     }
 
     private void overViewX1(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        List<Reels> reels = service.findAll();
+        Session session = ConfigSessionFactory.getSessionFactory().openSession();
+        List<Reels> reels = session.createQuery("from Reels where model = 5").getResultList();
         req.setAttribute("listReels", reels);
         ServletContext servletContext = getServletContext();
-        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/overview-arena.jsp");
+        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/overview-x1.jsp");
         dispatcher.forward(req, resp);
         resp.sendRedirect("overviewArena");
     }

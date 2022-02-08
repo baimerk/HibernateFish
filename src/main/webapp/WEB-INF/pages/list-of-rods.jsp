@@ -29,7 +29,6 @@
         <li data-target="#myCarousel" data-slide-to="6"></li>
         <li data-target="#myCarousel" data-slide-to="7"></li>
         <li data-target="#myCarousel" data-slide-to="8"></li>
-        <li data-target="#myCarousel" data-slide-to="9"></li>
     </ol>
 
     <!-- Wrapper for slides -->
@@ -48,7 +47,7 @@
             <div class="carousel-caption">
                 <h3>Blue Bird</h3>
                 <p>It is rods too</p>
-                <button class="btBlue" data-toggle="modal" data-target="#myModal">Buy items</button>
+                <div><a href="${pageContext.request.contextPath}/list-of-rods/bluebird" class="btBlue">Buy items</a></div><br>
             </div>
         </div>
 

@@ -23,6 +23,7 @@ public class RodsCharacter {
     private Conf rods;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "rods_id")
+
     private List<Rods> rod;
 
     public List<Rods> getRod(){
@@ -58,6 +59,19 @@ public class RodsCharacter {
         this.weight = weight;
         this.section = section;
         this.tLength = tLength;
+    }
+
+    public RodsCharacter(String model, String length, String power, String lureTest, String lineTest, String action, String weight, String section, String tLength, Conf rods) {
+        this.model = model;
+        this.length = length;
+        this.power = power;
+        this.lureTest = lureTest;
+        this.lineTest = lineTest;
+        this.action = action;
+        this.weight = weight;
+        this.section = section;
+        this.tLength = tLength;
+        this.rods = rods;
     }
 
     public long getId() {
