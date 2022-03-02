@@ -27,7 +27,7 @@
         <c:if test="${sessionScope.userRole.equals('ADMIN')}">
           <td class="text-center align-middle">
             <div class="btn-group" role="group" aria-label="Basic example">
-              <a href="edit?id=${user.id}" class="btn btn-primary" role="button">Edit</a>
+              <a href="edit?id=${user.id}" class="btn btn-primary1" role="button">Edit</a>
               <a href="delete?id=${user.id}" class="btn btn-secondary" role="button">Delete</a>
             </div>
           </td>

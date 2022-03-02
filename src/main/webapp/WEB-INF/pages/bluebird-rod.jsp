@@ -19,12 +19,12 @@
 <br>
 <br>
 <div class="container text-center">
-    <h3>THE TABLE BUY RODS</h3>
+    <h3>BUY RODS BLUE BIRD</h3>
     <p>You are adding like rods!</p>
 </div>
     <div class="box">
         <div class="image">
-            <img src="https://en.favorite-fishing.com/images/thumbnails/280/1454/detailed/2/arena.png" alt="Arena"/>
+            <img src="https://en.favorite-fishing.com/images/thumbnails/280/1454/detailed/2/arena.png" alt="Blue Bird"/>
         </div>
         <div class="container1">
         <div class="text">
@@ -65,7 +65,8 @@
                         <c:if test="${sessionScope.userRole.equals('ADMIN')}">
                             <td class="text-center align-middle">
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <a href="${pageContext.request.contextPath}/list-of-rods/add-to-buy?id=${rodsCharacters.id}" class="btn btn-primary" role="button">Add to Buy</a>
+                                    <a href="editRodsCh?id=${rodsCharacters.id}" class="btn btn-primary" role="button">Edit</a>
+                                    <a href="deleteRodsCh?id=${rodsCharacters.id}" class="btn btn-secondary" role="button">Delete</a>
                                 </div>
                             </td>
                         </c:if>

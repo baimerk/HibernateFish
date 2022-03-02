@@ -13,11 +13,16 @@
     </style>
 </head>
 <body>
-<%@ include file="/WEB-INF/fragments/navigation.jsp" %>
+<div>
+    <%@ include file="/WEB-INF/fragments/navigation.jsp" %>
+</div>
+<br>
+<br>
+<br>
 <div class="container">
-    <h2 class="text-center">Form edit rods:</h2>
+    <h2 class="text-center">Form Edit rods:</h2>
     <div class="row justify-content-center">
-        <form class="col-6" action="updateRods" method="post">
+        <form class="col-6" action="update-rod" method="post">
             <input type="hidden" name="id" value="${requestScope.existedRods.id}">
             <div class="mb-3">
                 <label for="inputModel" class="form-label">Model rods</label>
@@ -25,9 +30,9 @@
                        required>
             </div>
             <div class="mb-3">
-                <label for="inputlength" class="form-label">Length rods</label>
+                <label for="inputlen" class="form-label">Length rods</label>
                 <input type="text" class="form-control" name="length" value="${requestScope.existedRods.length}"
-                       id="inputlength" required>
+                       id="inputlen" required>
             </div>
             <div class="mb-3">
                 <label for="inputPower" class="form-label">Power rods</label>
@@ -35,40 +40,41 @@
                        id="inputPower" required>
             </div>
             <div class="mb-3">
-                <label for="inputLureTest" class="form-label">LureTest</label>
-                <input type="text" class="form-control" name="lureTest" value="${requestScope.existedRods.lureTest}" id="inputLureTest"
-                       required>
+                <label for="inputLT" class="form-label">Lure test,g</label>
+                <input type="text" class="form-control" name="lureTest" value="${requestScope.existedRods.lureTest}"
+                       id="inputLT" required>
             </div>
             <div class="mb-3">
-                <label for="inputLineTest" class="form-label">LineTest</label>
+                <label for="inputLTest" class="form-label">line Test</label>
                 <input type="text" class="form-control" name="lineTest" value="${requestScope.existedRods.lineTest}"
-                       id="inputLineTest" required>
+                       id="inputLTest" required>
             </div>
             <div class="mb-3">
-                <label for="inputAction" class="form-label">Action rods</label>
+                <label for="inputAc" class="form-label">Action</label>
                 <input type="text" class="form-control" name="action" value="${requestScope.existedRods.action}"
-                       id="inputAction" required>
+                       id="inputAc" required>
             </div>
             <div class="mb-3">
-                <label for="inputWeight" class="form-label">Weight rods</label>
+                <label for="inputW" class="form-label">Weight</label>
                 <input type="text" class="form-control" name="weight" value="${requestScope.existedRods.weight}"
-                       id="inputWeight" required>
+                       id="inputW" required>
             </div>
             <div class="mb-3">
-                <label for="inputSection" class="form-label">Section rods</label>
+                <label for="inputSec" class="form-label">Section</label>
                 <input type="text" class="form-control" name="section" value="${requestScope.existedRods.section}"
-                       id="inputSection" required>
+                       id="inputSec" required>
             </div>
             <div class="mb-3">
-                <label for="inputtLength" class="form-label">TLength rods</label>
+                <label for="inputTrL" class="form-label">Transport Length</label>
                 <input type="text" class="form-control" name="tLength" value="${requestScope.existedRods.tLength}"
-                       id="inputtLength" required>
+                       id="inputTrL" required>
             </div>
             <div class="mb-3">
-                <label for="inputRType" class="form-label">Rods Type</label>
-                <input type="text" class="form-control" name="tLength" value="${requestScope.existedRods.rods}"
-                       id="inputRType" required>
+                <label for="inputModT" class="form-label">Model Type</label>
+                <input type="text" class="form-control" name="modelType" value="${requestScope.existedRods.modelType}"
+                       id="inputModT" required>
             </div>
+
             <button type="submit" class="btn btn-primary">Save</button>
             <button type="reset" class="btn btn-secondary">Reset</button>
         </form>

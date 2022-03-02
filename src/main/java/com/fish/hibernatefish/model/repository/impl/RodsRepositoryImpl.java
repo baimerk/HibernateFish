@@ -13,7 +13,7 @@ public class RodsRepositoryImpl implements BaseRepository<RodsCharacter> {
     @Override
     public List<RodsCharacter> findAllType(){
         Session session = ConfigSessionFactory.getSessionFactory().openSession();
-        return session.createQuery("from RodsCharacter where rods = 1").getResultList();
+        return session.createQuery("from RodsCharacter where modelType = 0").getResultList();
     }
 
     @Override

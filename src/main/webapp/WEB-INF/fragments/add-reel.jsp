@@ -1,4 +1,4 @@
-<form class="col-6 needs-validation" action="addReels" novalidate method="post">
+<form class="col-6 needs-validation" action="add-reel" novalidate method="post">
     <div class="container">
         <table class="table caption-top">
             <thead class="table-success">
@@ -19,7 +19,7 @@
                     <label for="inputLin" class="form-label">Weight</label>
                     <input type="text" class="form-control" name="weight" id="inputLin" required></td>
                 <td class="text-center align-middle">
-                    <label for="inputA" class="form-label">Spool Material</label>
+                    <label for="inputA" class="form-label">Spool Mat</label>
                     <input type="text" class="form-control" name="spoolMaterial" id="inputA" required></td>
                 <td class="text-center align-middle">
                     <label for="inputW" class="form-label">Line Retrieve</label>
@@ -27,6 +27,9 @@
                 <td class="text-center align-middle">
                     <label for="inputS" class="form-label">Model</label>
                     <input type="text" class="form-control" name="model" id="inputS" required></td>
+                <td class="text-center align-middle">
+                    <label for="inputPr" class="form-label">Price</label>
+                    <input type="text" class="form-control" name="price" id="inputPr" required></td>
 
                 <td class="text-center align-middle">
                     <div class="btn-group" role="group" aria-label="Basic example">

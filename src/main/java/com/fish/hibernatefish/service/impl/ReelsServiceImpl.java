@@ -42,9 +42,7 @@ public class ReelsServiceImpl implements BaseService<Reels> {
     }
 
     @Override
-    public Reels findById(long id) {
-        return null;
-    }
+    public Reels findById(long id) { return repository.findById(id); }
 
     @Override
     public boolean create(Reels entity) {
@@ -53,7 +51,7 @@ public class ReelsServiceImpl implements BaseService<Reels> {
 
     @Override
     public Reels update(Reels entity) {
-        return null;
+        return repository.update(entity);
     }
 
     @Override

@@ -20,10 +20,11 @@
 <br>
 <div class="container text-center">
     <h3>THE TABLE BUY ARENA</h3>
-    <p>You are adding like Reels!</p>
+    <p>You are adding like Reels!</p></div>
+<div class="container1">
     <div class="box">
         <div class="image">
-             <img src="https://en.favorite-fishing.com/images/thumbnails/280/280/detailed/3/Arena-reel-main.png" alt="Blue Bird"/>
+             <img src="https://en.favorite-fishing.com/images/thumbnails/280/280/detailed/3/Arena-reel-main.png" alt="Arena"/>
         </div>
         <div class="text">
         <table class="table caption-top">

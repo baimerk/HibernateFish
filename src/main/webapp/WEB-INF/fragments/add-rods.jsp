@@ -1,7 +1,7 @@
-<form class="col-6 needs-validation" action="${pageContext.request.contextPath}/base/addRod" novalidate method="post">
-<div class="container">
-<table class="table caption-top">
-  <thead class="table-success">
+<form class="col-6 needs-validation" action="add-rod" novalidate method="post">
+<div>
+<table>
+  <thead>
   <tr>
     <td class="text-center align-middle">
       <label for="inputM" class="form-label">Model</label>
@@ -30,6 +30,9 @@
     <td class="text-center align-middle">
       <label for="inputTS" class="form-label">Transp.length,sm</label>
       <input type="text" class="form-control" name="tLength" id="inputTS" required></td>
+    <td class="text-center align-middle">
+      <label for="inputMR" class="form-label">Model Rods</label>
+      <input type="text" class="form-control" name="modelType" id="inputMR" required></td>
 
     <td class="text-center align-middle">
       <div class="btn-group" role="group" aria-label="Basic example">

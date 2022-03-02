@@ -1,11 +1,13 @@
 package com.fish.hibernatefish.controller;
 
+import com.fish.hibernatefish.config.ConfigSessionFactory;
 import com.fish.hibernatefish.model.*;
 import com.fish.hibernatefish.service.BaseService;
 import com.fish.hibernatefish.service.impl.ReelsServiceImpl;
 import com.fish.hibernatefish.service.impl.RodsServiceImpl;
 import com.fish.hibernatefish.service.impl.TypeServiceImpl;
 import com.fish.hibernatefish.service.impl.UserServiceImpl;
+import org.hibernate.Session;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -17,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @WebServlet(urlPatterns = {"/base/*"})
@@ -42,17 +45,12 @@ public class UserServlet extends HttpServlet {
                 case "/logoutAction" -> logoutUser(req, resp);
                 case "/add" -> addUser(req, resp);
                 case "/addQ" -> addUserQvick(req,resp);
-                case "/addRod" -> addRod(req, resp);
-                case "/addReels" -> addReels(req, resp);
+                case "/addMyRod" -> addMyRod(req,resp);
                 case "/update" -> updateUser(req, resp);
-                case "/updateRods" -> updateRods(req, resp);
                 case "/delete" -> deleteUser(req, resp);
                 case "/edit" -> showEditForm(req, resp);
-                case "/editRodsCh" -> showEditFormRods(req, resp);
                 case "/deleteRodsCh" -> deleteRodsCh(req, resp);
                 case "/catalog" -> showCatalog(req,resp);
-                case "/manage" -> manageForm(req,resp);
-                case "/reels" -> listReels(req,resp);
                 case "/users" -> manageUser(req,resp);
                 case "/cabinet" -> userCabinet(req,resp);
                 default -> listUser(req, resp);
@@ -73,19 +71,6 @@ public class UserServlet extends HttpServlet {
         RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/list-of-rods.jsp");
     }
 
-    private void manageForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String search = req.getParameter("search");
-        List<User> users = service.findAll();
-        List<RodsCharacter> rodsCharacters = download.findAll();
-        List<Rods> rods = load.findAll();
-        req.setAttribute("listUser", users);
-        req.setAttribute("listRods", rodsCharacters);
-        req.setAttribute("listTypeRods", rods);
-        ServletContext servletContext = getServletContext();
-        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/manage-form.jsp");
-        dispatcher.forward(req,resp);
-        resp.sendRedirect("manage");
-    }
 
     private void manageUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String search = req.getParameter("search");
@@ -98,11 +83,10 @@ public class UserServlet extends HttpServlet {
     }
 
     private void userCabinet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        User user=(User) session.getAttribute("user");
-        long userId = user.getId();
-        req.setAttribute("rods", service.findById(userId).getRodsCharacters());
-//        req.setAttribute("cars", user.getCars());
+        //HttpSession session = req.getSession();
+        Session session = ConfigSessionFactory.getSessionFactory().openSession();
+        List<RodsCharacter> rodsCharacters = session.createSQLQuery("SELECT * from rods r1 INNER JOIN fishman_rods fr on r1.id = fr.rods_id").getResultList();
+        req.setAttribute("listRods", rodsCharacters);
         ServletContext servletContext = getServletContext();
         RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/user-cabinet.jsp");
         dispatcher.forward(req, resp);
@@ -122,15 +106,6 @@ public class UserServlet extends HttpServlet {
         ServletContext servletContext = getServletContext();
         RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/list-user.jsp");
         dispatcher.forward(req, resp);
-    }
-
-    private void listReels(HttpServletRequest req,HttpServletResponse resp)throws ServletException,IOException{
-        String search = req.getParameter("search");
-        List<Reels> reels = reelsBaseService.findAll();
-        req.setAttribute("listReels", reels);
-        ServletContext servletContext = getServletContext();
-        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/manage-form-reels.jsp");
-        dispatcher.forward(req,resp);
     }
 
     private void addUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -176,7 +151,7 @@ public class UserServlet extends HttpServlet {
         resp.sendRedirect("users");
     }
 
-    private void addRod(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    private void addMyRod(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         HttpSession session = req.getSession();
         String model = req.getParameter("model");
         String length = req.getParameter("length");
@@ -187,49 +162,15 @@ public class UserServlet extends HttpServlet {
         String weight = req.getParameter("weight");
         String section = req.getParameter("section");
         String tLength = req.getParameter("tLength");
-        RodsCharacter rodsCharacter = new RodsCharacter(model,length,power,lureTest,lineTest,action,weight,section,tLength);
-        rodsCharacter.setModel(model);
-        rodsCharacter.setLength(length);
-        rodsCharacter.setPower(power);
-        rodsCharacter.setLureTest(lureTest);
-        rodsCharacter.setLineTest(lineTest);
-        rodsCharacter.setAction(action);
-        rodsCharacter.setWeight(weight);
-        rodsCharacter.setSection(section);
-        rodsCharacter.settLength(tLength);
-        boolean isAdded = download.create(rodsCharacter);
-        if (isAdded) {
-            session.setAttribute("model", rodsCharacter);
-        }
-        resp.sendRedirect("manage");
-    }
-
-    private void addReels(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        String size = req.getParameter("size");
-        String nylonLine = req.getParameter("nylonLine");
-        String ballBearings = req.getParameter("ballBearings");
-        String gearRatio = req.getParameter("gearRatio");
-        String weight = req.getParameter("weight");
-        String lineRetrieve = req.getParameter("lineRetrieve");
-        String spoolMaterial = req.getParameter("spoolMaterial");
-        String price = req.getParameter("price");
-        Conf model = Conf.valueOf(req.getParameter("model"));
-        Reels reels = new Reels(size, nylonLine, ballBearings, gearRatio, weight, lineRetrieve, spoolMaterial, price, model);
-        reels.setSize(size);
-        reels.setNylonLine(nylonLine);
-        reels.setBallBearings(ballBearings);
-        reels.setGearRatio(gearRatio);
-        reels.setWeight(weight);
-        reels.setSpoolMaterial(spoolMaterial);
-        reels.setLineRetrieve(lineRetrieve);
-        reels.setPrice(price);
-        boolean isAdded = reelsBaseService.create(reels);
-        if (isAdded) {
-            session.setAttribute("size", reels);
-            session.setAttribute("reelModel", reels);
-        }
-        resp.sendRedirect("reels");
+        Conf modelType = Conf.valueOf(req.getParameter("modelType"));
+        RodsCharacter rodsCharacter = new RodsCharacter(model,length,power,lureTest,lineTest,action,weight,section,tLength,modelType);
+        User user = (User) session.getAttribute("user");
+        User userBd = service.findById(user.getId());
+        //Set<RodsCharacter> rodsCharacters = userBd.getRodsCharacters();
+        //rodsCharacters.add(rodsCharacter);
+        service.update(userBd);
+        session.setAttribute("user", userBd);
+        resp.sendRedirect("cabinet");
     }
 
     private void loginUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -299,46 +240,9 @@ public class UserServlet extends HttpServlet {
         dispatcher.forward(req, resp);
     }
 
-    private void showEditFormRods(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
-        RodsCharacter existedRods = download.findById(id);
-        req.setAttribute("existedRods", existedRods);
-        ServletContext servletContext = getServletContext();
-        RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/pages/edit-rods.jsp");
-        dispatcher.forward(req, resp);
-    }
-
     private void deleteRodsCh(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         service.deleteById(id);
-        resp.sendRedirect("manage");
-    }
-
-    private void updateRods(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
-        String model = req.getParameter("model");
-        String length = req.getParameter("length");
-        String power = req.getParameter("power");
-        String lureTest = req.getParameter("lureTest");
-        String lineTest = req.getParameter("lineTest");
-        String action = req.getParameter("action");
-        String weight = req.getParameter("weight");
-        String section = req.getParameter("section");
-        String tLength = req.getParameter("tLength");
-        Conf rods = Conf.valueOf(req.getParameter("rods"));
-        RodsCharacter rodsCharacter = new RodsCharacter(id, model, length, power, lureTest, lineTest, action, weight, section, tLength, rods);
-        rodsCharacter.setId(id);
-        rodsCharacter.setModel(model);
-        rodsCharacter.setLength(length);
-        rodsCharacter.setPower(power);
-        rodsCharacter.setLureTest(lureTest);
-        rodsCharacter.setLineTest(lineTest);
-        rodsCharacter.setAction(action);
-        rodsCharacter.setWeight(weight);
-        rodsCharacter.setSection(section);
-        rodsCharacter.setLength(tLength);
-        rodsCharacter.setRods(rods);
-        download.update(rodsCharacter);
         resp.sendRedirect("manage");
     }
 }

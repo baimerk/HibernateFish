@@ -10,10 +10,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
-        <%@ include file="/css/stylesCol.css" %>
+        <%@ include file="/css/styles.css" %>
     </style>
 </head>
-<body>
+<body1>
 <%@ include file="/WEB-INF/fragments/navigation.jsp" %>
 <br>
 <br>
@@ -36,15 +36,13 @@
             <th class="text-center" scope="col">Weight,g</th>
             <th class="text-center" scope="col">Section</th>
             <th class="text-center" scope="col">Transp.length,sm</th>
-            <th class="text-center" scope="col">Rods Type</th>
-            <th class="text-center" scope="col">Оценка</th>
-            <th class="text-center" scope="col">Комментарий</th>
-            <c:if test="${sessionScope.userRole.equals('USER')}">
+            <th class="text-center" scope="col">Model Type</th>
+            <c:if test="${sessionScope.userRole.equals('ADMIN')}">
                 <th class="text-center" scope="col">Действие</th>
             </c:if>
         </tr>
         </thead>
-        <c:forEach var="rodsCharacters" items="${requestScope.myRods}" varStatus="st">
+        <c:forEach var="rodsCharacters" items="${requestScope.listRods}" varStatus="st">
             <tr>
                 <th class="text-center align-middle" scope="row">${st.index}</th>
                 <td class="text-center align-middle">${rodsCharacters.model}</td>
@@ -56,9 +54,7 @@
                 <td class="text-center align-middle">${rodsCharacters.weight}</td>
                 <td class="text-center align-middle">${rodsCharacters.section}</td>
                 <td class="text-center align-middle">${rodsCharacters.tLength}</td>
-                <td class="text-center align-middle">${rodsCharacters.rods}</td>
-                <td class="text-center align-middle">${car.mark}</td>
-                <td class="text-center align-middle">${car.comment}</td>
+                <td class="text-center align-middle">${rodsCharacters.modelType}</td>
                 <td class="text-center align-middle">
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <a href="editcar?id=${car.id}" class="btn btn-primary" role="button">Редактировать</a>
@@ -69,5 +65,15 @@
         </c:forEach>
     </table>
 </div>
-</body>
+</div>
+    <div class='light x1'></div>
+    <div class='light x2'></div>
+    <div class='light x3'></div>
+    <div class='light x4'></div>
+    <div class='light x5'></div>
+    <div class='light x6'></div>
+    <div class='light x7'></div>
+    <div class='light x8'></div>
+    <div class='light x9'></div>
+</body1>
 </html>

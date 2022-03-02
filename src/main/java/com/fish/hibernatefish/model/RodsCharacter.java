@@ -2,14 +2,18 @@ package com.fish.hibernatefish.model;
 
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
+@Table(name = "rods")
 public class RodsCharacter {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String model;
     private String length;
     private String power;
@@ -19,23 +23,25 @@ public class RodsCharacter {
     private String weight;
     private String section;
     private String tLength;
+
     @Enumerated(EnumType.ORDINAL)
-    private Conf rods;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "rods_id")
+    private Conf modelType;
 
-    private List<Rods> rod;
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "rods", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Set<User> users;
 
-    public List<Rods> getRod(){
-        return rod;
+    public Set<User> getUsers() {
+        return users;
     }
 
-    public void setRod(List<Rods> rods){}
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
 
     public RodsCharacter() {
     }
 
-    public RodsCharacter(long id, String model, String length, String power, String lureTest, String lineTest, String action, String weight, String section, String tLength, Conf rods) {
+    public RodsCharacter(long id, String model, String length, String power, String lureTest, String lineTest, String action, String weight, String section, String tLength, Conf modelType) {
         this.id = id;
         this.model = model;
         this.length = length;
@@ -46,7 +52,7 @@ public class RodsCharacter {
         this.weight = weight;
         this.section = section;
         this.tLength = tLength;
-        this.rods = rods;
+        this.modelType = modelType;
     }
 
     public RodsCharacter(String model, String length, String power, String lureTest, String lineTest, String action, String weight, String section, String tLength) {
@@ -61,7 +67,7 @@ public class RodsCharacter {
         this.tLength = tLength;
     }
 
-    public RodsCharacter(String model, String length, String power, String lureTest, String lineTest, String action, String weight, String section, String tLength, Conf rods) {
+    public RodsCharacter(String model, String length, String power, String lureTest, String lineTest, String action, String weight, String section, String tLength, Conf modelType) {
         this.model = model;
         this.length = length;
         this.power = power;
@@ -71,7 +77,7 @@ public class RodsCharacter {
         this.weight = weight;
         this.section = section;
         this.tLength = tLength;
-        this.rods = rods;
+        this.modelType = modelType;
     }
 
     public long getId() {
@@ -154,12 +160,12 @@ public class RodsCharacter {
         this.tLength = tLength;
     }
 
-    public Conf getRods() {
-        return rods;
+    public Conf getModelType() {
+        return modelType;
     }
 
-    public void setRods(Conf rods) {
-        this.rods = rods;
+    public void setModelType(Conf modelType) {
+        this.modelType = modelType;
     }
 
     @Override

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <table class="table table-striped">
         <caption>Characters of rods</caption>
         <thead class="table-success">
@@ -13,7 +13,7 @@
             <th class="text-center" scope="col">Weight,g</th>
             <th class="text-center" scope="col">Section</th>
             <th class="text-center" scope="col">Transp.length,sm</th>
-            <th class="text-center" scope="col">Rods Type</th>
+            <th class="text-center" scope="col">Model Type</th>
             <c:if test="${sessionScope.userRole.equals('ADMIN')}">
                 <th class="text-center" scope="col">ACTION</th>
             </c:if>
@@ -32,7 +32,7 @@
                 <td class="text-center align-middle">${rodsCharacters.weight}</td>
                 <td class="text-center align-middle">${rodsCharacters.section}</td>
                 <td class="text-center align-middle">${rodsCharacters.tLength}</td>
-                <td class="text-center align-middle">${rodsCharacters.rods}</td>
+                <td class="text-center align-middle">${rodsCharacters.modelType}</td>
                 <c:if test="${sessionScope.userRole.equals('ADMIN')}">
                     <td class="text-center align-middle">
                         <div class="btn-group" role="group" aria-label="Basic example">

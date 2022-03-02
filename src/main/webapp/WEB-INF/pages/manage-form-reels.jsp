@@ -2,7 +2,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <head>
         <title>User Management Application</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +11,6 @@
         <style>
             <%@ include file="/css/styles.css" %>
         </style>
-    </head>
 </head>
 <body>
 <%@ include file="/WEB-INF/fragments/navigation.jsp" %>
@@ -22,7 +20,15 @@
 <div class="container text-center">
     <h3>THE TABLE REELS</h3>
     <p>You are edit and delete reels!</p>
-<%@ include file="/WEB-INF/fragments/reels.jsp" %>
-<%@ include file="/WEB-INF/fragments/addReels.jsp" %>
+
+</div>
+<div>
+    <%@ include file="/WEB-INF/fragments/reels.jsp" %>
+</div>
 </body>
+<body1>
+    <div class="container-fluid">
+        <%@ include file="/WEB-INF/fragments/add-reel.jsp" %>
+    </div>
+</body1>
 </html>

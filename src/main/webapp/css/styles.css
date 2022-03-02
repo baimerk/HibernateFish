@@ -1,3 +1,8 @@
+.container1 {
+    padding-left: 1px;
+    padding-right: 1px;
+    width: 100%;
+}
 .d-flex {
     margin-block-end: 0;
 }
@@ -52,6 +57,34 @@
     padding: 10px 20px;
     background-color: #2CA8FF;
     color: #f1f1f1;
+    border-radius: 0;
+    transition: .2s;
+}
+.btn-primary1{
+    padding: 10px 20px;
+    background-color: #fddd04;
+    color: #111013;
+    border-radius: 0;
+    transition: .2s;
+}
+.btn-primary2{
+    padding: 10px 20px;
+    background-color: #fddd04;
+    color: #111013;
+    border-radius: 0;
+    transition: .2s;
+}
+.btn-secondary2{
+    padding: 10px 20px;
+    background-color: #15fd04;
+    color: #111013;
+    border-radius: 0;
+    transition: .2s;
+}
+.btEdit {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #ea0b0b;
     border-radius: 0;
     transition: .2s;
 }
@@ -118,3 +151,4 @@
 .image img {width: 200px;}
 .image {float: left; width: 200px;}
 .text {margin-left: 220px;}
+

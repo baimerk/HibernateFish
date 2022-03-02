@@ -2,6 +2,7 @@ package com.fish.hibernatefish.model.repository.impl;
 
 import com.fish.hibernatefish.config.ConfigSessionFactory;
 import com.fish.hibernatefish.model.Reels;
+import com.fish.hibernatefish.model.RodsCharacter;
 import com.fish.hibernatefish.model.repository.BaseRepository;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -35,7 +36,8 @@ public class ReelRepositoryImpl implements BaseRepository<Reels> {
 
     @Override
     public List<Reels> findAllType3() {
-        return null;
+        Session session = ConfigSessionFactory.getSessionFactory().openSession();
+        return session.createQuery("from Reels where model = 3").getResultList();
     }
 
     @Override
@@ -45,7 +47,8 @@ public class ReelRepositoryImpl implements BaseRepository<Reels> {
 
     @Override
     public Reels findById(long id) {
-        return null;
+        Session session = ConfigSessionFactory.getSessionFactory().openSession();
+        return session.get(Reels.class, id);
     }
 
     @Override
@@ -63,7 +66,18 @@ public class ReelRepositoryImpl implements BaseRepository<Reels> {
 
     @Override
     public Reels update(Reels entity) {
-        return null;
+        Transaction transaction = null;
+        try (Session session = ConfigSessionFactory.getSessionFactory().openSession();){
+            transaction = session.beginTransaction();
+            session.update(entity);
+            transaction.commit();
+            return session.get(Reels.class, entity.getId());
+        } catch (Exception exception){
+            if (transaction != null){
+                transaction.rollback();
+            }
+        }
+        return entity;
     }
 
     @Override

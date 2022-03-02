@@ -1,3 +1,17 @@
+body{
+    margin: 0;
+}
+#panel {
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+}
+
+.container1 {
+    padding-left: 1px;
+    padding-right: 1px;
+    width: 100%;
+}
 .d-flex {
     margin-block-end: 0;
 }
@@ -12,6 +26,8 @@
     border-color: #f1f1f1;
 }
 .carousel-inner img {
+    -webkit-filter: grayscale(90%);
+    filter: grayscale(90%);  /* make all photos black and white */
     width: 100%; /* Set width to 100% */
     margin: auto;
 }
@@ -53,45 +69,31 @@
     border-radius: 0;
     transition: .2s;
 }
-.btk {
-     padding: 10px 20px;
-     background-color: #ffffff;
-     color: #111013;
-     border-radius: 0;
-     transition: .2s;
- }
-.btHur {
-    padding: 10px 20px;
-    background-color: #e56c6c;
-    color: #111013;
-    border-radius: 0;
-    transition: .2s;
-}
-.btX {
-    padding: 10px 20px;
-    background-color: #33da36;
-    color: #111013;
-    border-radius: 0;
-    transition: .2s;
-}
-.btYel {
-    padding: 10px 20px;
-    background-color: #dac433;
-    color: #1a0a2a;
-    border-radius: 0;
-    transition: .2s;
-}
-.btBlue {
-    padding: 10px 20px;
-    background-color: #2200ff;
-    color: #aeacb0;
-    border-radius: 0;
-    transition: .2s;
-}
-.btBlack {
+.btn-primary1{
     padding: 10px 20px;
     background-color: #fddd04;
     color: #111013;
+    border-radius: 0;
+    transition: .2s;
+}
+.btn-primary2{
+    padding: 10px 20px;
+    background-color: #fddd04;
+    color: #111013;
+    border-radius: 0;
+    transition: .2s;
+}
+.btn-secondary2{
+    padding: 10px 20px;
+    background-color: #15fd04;
+    color: #111013;
+    border-radius: 0;
+    transition: .2s;
+}
+.btEdit {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #ea0b0b;
     border-radius: 0;
     transition: .2s;
 }
@@ -149,4 +151,13 @@
 .dropdown-menu li a:hover {
     background-color: red !important;
 }
+.img-left {
+    margin: 0 5px 5px 0;
+    padding: 0;
+    float: left;
+}
+.box {overflow: hidden;}
+.image img {width: 200px;}
+.image {float: left; width: 200px;}
+.text {margin-left: 220px;}
 

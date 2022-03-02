@@ -14,7 +14,7 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/fragments/navigation.jsp" %>
-<div class="container">
+<div class="container-fluid">
     <h2 class="text-center">Register Form:</h2>
     <div class="row justify-content-center">
         <form class="col-6" action="update" method="post">

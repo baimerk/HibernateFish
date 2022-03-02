@@ -4,7 +4,7 @@ package com.fish.hibernatefish.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "rods")
+@Table(name = "type")
 public class Rods {
 
     @Id

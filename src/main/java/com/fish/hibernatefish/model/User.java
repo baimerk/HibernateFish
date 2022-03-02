@@ -1,6 +1,9 @@
 package com.fish.hibernatefish.model;
 
+import org.apache.taglibs.standard.lang.jstl.UnaryMinusOperator;
+
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -26,9 +29,25 @@ public class User {
     @Enumerated(EnumType.ORDINAL)
     private Role role;
 
-    @OneToMany (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
-    private List<RodsCharacter> rodsCharacters;
+    //значение атрибута mappedBy - имя поля связи в классе сущности-владельца отношений
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<RodsCharacter> rods;
+
+    public Set<RodsCharacter> getRods() {
+        return rods;
+    }
+
+    public void setRods(Set<RodsCharacter> rods) {
+        this.rods = rods;
+    }
+
+    //@ManyToMany(cascade = CascadeType.ALL)
+    //@JoinTable(name = "user_rods",
+            //foreign key for User in user_rods table
+            //joinColumns = @JoinColumn(name = "user_id"),
+            //foreign key for other side - user in user_rods table
+            //inverseJoinColumns = @JoinColumn(name = "rod_id"))
+
 
     public User() {
     }
@@ -76,14 +95,6 @@ public class User {
         this.lastName = lastName;
         this.address = address;
         this.isMarried = isMarried;
-    }
-
-    public List<RodsCharacter> getRodsCharacters() {
-        return rodsCharacters;
-    }
-
-    public void setRodsCharacters(List<RodsCharacter> rodsCharacters){
-        this.rodsCharacters = rodsCharacters;
     }
 
     public long getId() {

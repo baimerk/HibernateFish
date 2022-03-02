@@ -15,9 +15,9 @@
     </head>
 </head>
 <body>
-<div>
-    <%@ include file="/WEB-INF/fragments/navigation.jsp" %>
-</div>
+<%@ include file="/WEB-INF/fragments/navigation.jsp" %>
+<br>
+<br>
 <br>
 <div class="container text-center">
     <h3>THE TABLE USERS</h3>

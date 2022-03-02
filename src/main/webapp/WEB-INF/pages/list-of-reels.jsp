@@ -127,14 +127,14 @@
     </div>
     <div class="col-sm-2">
         <p class="text-center"><strong>Sirius</strong></p><br>
-        <a href="#${pageContext.request.contextPath}/list-of-reels/overview_sirius">
-            <img src="https://en.favorite-fishing.com/images/thumbnails/280/280/detailed/5/sirius_02.png" class="img-circle person" alt="Hurricane" width="255" height="255">
+        <a href="${pageContext.request.contextPath}/list-of-reels/overview_sirius">
+            <img src="https://en.favorite-fishing.com/images/thumbnails/280/280/detailed/5/sirius_02.png" class="img-circle person" alt="Sirius" >
             <p class="text-center">From $129.99</p>
         </a>
     </div>
     <div class="col-sm-2">
         <p class="text-center"><strong>X1</strong></p><br>
-        <a href="#${pageContext.request.contextPath}/list-of-reels/overview_x1">
+        <a href="${pageContext.request.contextPath}/list-of-reels/overview_x1">
             <img src="https://en.favorite-fishing.com/images/thumbnails/280/280/detailed/4/x1Reel_4000_white1_main.jpg" class="img-circle person" alt="Hurricane" width="255" height="255">
             <p class="text-center">From $79.99</p>
         </a>
@@ -145,6 +145,13 @@
     <p>Reels</p>
     <p>About Reels. The whole product range goes through double-stage quality control. At the first stage, the goods are checked at our manufacturing branch offices in East Asia and at the second stage they are checked at regional warehouses by technical control department specialists. All new developments are tested by employees and the most demanding fans of our brand. As a result, we are sure about our goods and provide one year guarantee for both Favorite spinning rods and spinning reels. Moreover, we constantly keep back-up parts of spinning rods and spools on stock, as well as a wide range of parts of fishing reels.</p>
     <br>
+    <div class="col-sm-2">
+        <p class="text-center"><strong>EXP</strong></p><br>
+        <a href="${pageContext.request.contextPath}/list-of-reels/exp">
+            <p class="text-center">From $79.99</p>
+        </a>
+    </div>
+
 </div>
 </body>
 </html>

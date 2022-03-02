@@ -47,16 +47,16 @@
             <div class="carousel-caption">
                 <h3>Blue Bird</h3>
                 <p>It is rods too</p>
-                <div><a href="${pageContext.request.contextPath}/list-of-rods/bluebird" class="btBlue">Buy items</a></div><br>
+                <div><a href="${pageContext.request.contextPath}/list-of-rods/blue-bird" class="btBlue">Buy items</a></div><br>
             </div>
         </div>
 
         <div class="item">
-            <img src="https://en.favorite-fishing.com/images/promo/4/BlackSwan_00_copy.jpg" width="714" height="322" alt="Black Swan series">
+            <img src="https://en.favorite-fishing.com/images/promo/4/BlackSwan_00_copy.jpg" alt="Black Swan series" width="714" height="322">
             <div class="carousel-caption">
                 <h3>Black Swan Series</h3>
                 <p>It is incredible rods</p>
-                <button class="btk" data-toggle="modal" data-target="#myModal">Buy items</button>
+                <div><a href="${pageContext.request.contextPath}/list-of-rods/black-swan" class="btBlue">Buy items</a></div><br>
             </div>
         </div>
 
@@ -65,7 +65,7 @@
             <div class="carousel-caption">
                 <h3>Cobalt Series</h3>
                 <p>It is incredible rods</p>
-                <button class="btBlue" data-toggle="modal" data-target="#myModal">Buy items</button>
+                <div><a href="${pageContext.request.contextPath}/list-of-rods/cobalt" class="btBlue">Buy items</a></div><br>
             </div>
         </div>
 
@@ -74,7 +74,7 @@
             <div class="carousel-caption">
                 <h3>Creed Series</h3>
                 <p>It is incredible rods</p>
-                <button class="btk" data-toggle="modal" data-target="#myModal">Buy items</button>
+                <div><a href="${pageContext.request.contextPath}/list-of-rods/creed" class="btBlue">Buy items</a></div><br>
             </div>
         </div>
 
@@ -83,7 +83,7 @@
             <div class="carousel-caption">
                 <h3>Impulse Series</h3>
                 <p>It is incredible rods</p>
-                <button class="btk" data-toggle="modal" data-target="#myModal">Buy items</button>
+                <div><a href="${pageContext.request.contextPath}/list-of-rods/impulse" class="btBlue">Buy items</a></div><br>
             </div>
         </div>
 
@@ -92,7 +92,7 @@
             <div class="carousel-caption">
                 <h3>Neo Breeze Series</h3>
                 <p>It is incredible rods</p>
-                <button class="btk" data-toggle="modal" data-target="#myModal">Buy items</button>
+                <div><a href="${pageContext.request.contextPath}/list-of-rods/neo-breeze" class="btBlue">Buy items</a></div><br>
             </div>
         </div>
 
@@ -101,7 +101,7 @@
             <div class="carousel-caption">
                 <h3>Professional Series</h3>
                 <p>It is incredible rods</p>
-                <button class="btk" data-toggle="modal" data-target="#myModal">Buy items</button>
+                <div><a href="${pageContext.request.contextPath}/list-of-rods/professional" class="btBlue">Buy items</a></div><br>
             </div>
         </div>
 
@@ -110,7 +110,16 @@
             <div class="carousel-caption">
                 <h3>Rapid Series</h3>
                 <p>It is incredible rods</p>
-                <button class="btk" data-toggle="modal" data-target="#myModal">Buy items</button>
+                <div><a href="${pageContext.request.contextPath}/list-of-rods/rapid" class="btBlue">Buy items</a></div><br>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="https://en.favorite-fishing.com/images/promo/3/rapid_black_1920x600.jpg" width="714" height="322" alt="White Bird series">
+            <div class="carousel-caption">
+                <h3>White Bird Series</h3>
+                <p>It is incredible rods</p>
+                <div><a href="${pageContext.request.contextPath}/list-of-rods/white-bird" class="btBlue">Buy items</a></div><br>
             </div>
         </div>
     </div>
@@ -124,6 +133,50 @@
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <p class="text-center"><strong>Arena Series</strong></p><br>
+        <a href="${pageContext.request.contextPath}/list-of-rods/action">
+            <img src="https://en.favorite-fishing.com/images/thumbnails/333/276/detailed/2/arena.png" class="img-circle person" alt="Arena" width="255" height="255">
+            <p class="text-center">From $119.99</p>
+        </a>
+    </div>
+    <div class="col-sm-2">
+        <p class="text-center"><strong>Blue Bird Series</strong></p><br>
+        <a href="${pageContext.request.contextPath}/list-of-rods/blue-bird">
+            <img src="https://en.favorite-fishing.com/images/thumbnails/333/276/detailed/4/308x1600_BB_vmg5-6z.png" class="img-circle person" alt="Blue Bird" width="255" height="255">
+            <p class="text-center">From $79.99</p>
+        </a>
+    </div>
+    <div class="col-sm-2">
+        <p class="text-center"><strong>Black Swan Series</strong></p><br>
+        <a href="${pageContext.request.contextPath}/list-of-rods/black-swan">
+            <img src="https://en.favorite-fishing.com/images/thumbnails/333/276/detailed/4/BlackSwan_transp.png" class="img-circle person" alt="Black Swan" width="255" height="255">
+            <p class="text-center">From $99.99</p>
+        </a>
+    </div>
+    <div class="col-sm-2">
+        <p class="text-center"><strong>Cobalt Series</strong></p><br>
+        <a href="${pageContext.request.contextPath}/list-of-rods/cobalt">
+            <img src="https://en.favorite-fishing.com/images/thumbnails/333/276/detailed/2/cobalt.png" class="img-circle person" alt="Cobalt" >
+            <p class="text-center">From $64.99</p>
+        </a>
+    </div>
+    <div class="col-sm-2">
+        <p class="text-center"><strong>Creed Series</strong></p><br>
+        <a href="${pageContext.request.contextPath}/list-of-rods/creed">
+            <img src="https://en.favorite-fishing.com/images/thumbnails/333/276/detailed/4/308x1600_SkylineC_befl-ce.png" class="img-circle person" alt="Creed" width="255" height="255">
+            <p class="text-center">From $129.99</p>
+        </a>
+    </div>
+    <div class="col-sm-2">
+        <p class="text-center"><strong>Impulse Series</strong></p><br>
+        <a href="${pageContext.request.contextPath}/list-of-rods/impulse">
+            <img src="https://en.favorite-fishing.com/images/thumbnails/333/276/detailed/2/impuls_new.png" class="img-circle person" alt="X1" width="255" height="255">
+            <p class="text-center">From $79.99</p>
+        </a>
+    </div>
 </div>
 <div class="container text-center">
     <h3>Its all about Rods</h3>

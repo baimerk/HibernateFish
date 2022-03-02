@@ -9,6 +9,7 @@ public class Reels {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String size; //размер модели
     private String nylonLine; // длина шнура рекомендуемая к применению
     private String ballBearings; // количество подшипников
@@ -16,12 +17,25 @@ public class Reels {
     private String weight; // вес
     private String lineRetrieve; // извлекаемая длина шнура
     private String spoolMaterial; // материал шпули
+    private String price; //цена
 
-    private String price;@Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.ORDINAL)
     private Conf model;
 
-
     public Reels() {
+    }
+
+    public Reels(long id, String size, String nylonLine, String ballBearings, String gearRatio, String weight, String lineRetrieve, String spoolMaterial, String price, Conf model) {
+        this.id = id;
+        this.size = size;
+        this.nylonLine = nylonLine;
+        this.ballBearings = ballBearings;
+        this.gearRatio = gearRatio;
+        this.weight = weight;
+        this.lineRetrieve = lineRetrieve;
+        this.spoolMaterial = spoolMaterial;
+        this.price = price;
+        this.model = model;
     }
 
     public Reels(String size, String nylonLine, String ballBearings, String gearRatio, String weight, String lineRetrieve, String spoolMaterial, String price, Conf model) {

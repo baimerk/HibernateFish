@@ -2,10 +2,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>List of Rods</title>
+    <title>User Management Application</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -21,8 +20,16 @@
 <div class="container text-center">
     <h3>THE TABLE RODS</h3>
     <p>You are edit and delete rods!</p>
-<%@ include file="/WEB-INF/fragments/rods_character.jsp"%>
-<%@ include file="/WEB-INF/fragments/add-rods.jsp"%>>
-<div/>
+
+</div>
+<div>
+    <%@ include file="/WEB-INF/fragments/rods-char.jsp"%>
+</div>
+
 </body>
+<body1>
+    <div class="container-fluid">
+        <%@ include file="/WEB-INF/fragments/add-rods.jsp" %>
+    </div>
+</body1>
 </html>

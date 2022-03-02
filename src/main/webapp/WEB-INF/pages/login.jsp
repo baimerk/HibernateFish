@@ -15,7 +15,10 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/fragments/navigation.jsp" %>
-<div class="container">
+<br>
+<br>
+<br>
+<div class="container-fluid">
     <h2 class="text-center">Log in Form:</h2>
     <div class="row justify-content-center">
         <form class="col-6 needs-validation" action="${pageContext.request.contextPath}/base/loginAction" method="post" novalidate>
